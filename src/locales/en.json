@@ -1,0 +1,155 @@
+{
+  "current"            : "Currently Inside VKirirom",
+  "known_plate"        : "Known Plate(s)",
+  "known_license"      : "Known Licence Plate(s)",
+  "unknown_plate"      : "Unknown Licence Plate(s)",
+  "total_plate_number" : "Total Plate(s)",
+  "bad_plate"          : "Bad Plate(s)",
+  "dashboard"          : "Dashboard",
+  "plate_logs"         : "Plate Logs",
+  "limitPage"          : "Plates per page",
+  "status"             : "Direction",
+  "fullname"          : "Full Name",
+  "email"              : "Email",
+  "phone"       : "Phone Number",
+  "role"      : "Position/Role",
+  "male"               : "Male",
+  "female"             : "Female",
+  "age"                : "Age",
+  "vehicle_type"      : "Vehicle Type",
+  "plate_number"       : "Plate Number",
+  "organization_name"       : "Organization Plate English",
+  "organization_name_khmer"        : "Organization Plate Khmer",
+  "reason_why_bad_plate" : "Why is it a bad plate?",
+  "change_language"    : "Change Language",
+  "submit"             : "Submit",
+  "cancel"             : "Cancel",
+  "delete"             : "Delete",
+  "plate_num_is_required": "Plate Numer Is Required",
+  "required":           "Require",
+  "search"             : "Search",
+  "approved_by"        : "Approve By",
+  "sign_out"           : "Sign Out",
+  "select_specific_date" : "Select Specific Date",
+  "generate_daily_data" : "Generate Daily Plate Log",
+  "license_plate"       : "License Plate",
+  "location"            : "Location",
+  "date"                : "Date",
+  "time"                : "Time",
+  "direction"           : "Direction",
+  "image"               : "Image",
+  "type"                : "Type",
+  "name"                : "Name",
+  "view"                : "View",
+  "others"              : "Others",
+  "reason"              : "Reason",
+  "origin"              : "Origin",
+  "stay"                : "Stay",
+  "pass_by"             : "Pass By",
+  "visit"               : "Visit",
+  "num_people"          : "Number People",
+  "temperature"         : "Temperature",
+  "nationality"         : "Foreigner/Local",
+  "local"               : "Khmer",
+  "foreigner"           : "Foreigner",
+  "edit_mode"           : "Edit Mode",
+  "goToPage"            : "Go to Page",
+  "plate_management"     : "Plate Management",
+  "currently"            : "Currently Inside",
+  "detailInformation"   : "Detail information",
+  "in"                : "In",
+  "out"               : "Out",
+  "outasek"           :"Ou Tasek",
+  "whiteshop"       : "White Shop",
+  "occupation" : {
+    "student": "Student",
+    "staff": "Staff",
+    "lecturer": "Lecturer"
+  },
+  "vehicles" : {
+    "car"                : "Car",
+    "motorbike"          :"Motorbike",
+    "bus"                : "Bus"
+  },
+  
+
+  "about": {
+    "title": "About",
+    "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dicta incidunt ea ut commodi quidem temporibus illo quia. Et itaque deleniti veniam tempore facere ipsum animi totam culpa minima vel voluptatem adipisci natus blanditiis similique sunt expedita, ex dicta doloremque repellat vitae temporibus. Quisquam quia, accusantium blanditiis architecto facilis saepe! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad unde laborum ut suscipit iure aliquam sapiente doloribus exercitationem nam sint."
+  },
+  "signIn": {
+    "signIn": "Sign In",
+    "username": "Username",
+    "password": "Password",
+    "logIn": "Login",
+    "forgotPassword": "Forgot Password",
+    "help": "help"
+  },
+  "button": {
+    "ok" : "OK",
+    "cancel" : "CANCEL",
+    "clear" : "CLEAR",
+    "generate" : "GENERATE",
+    "capture" : "Capture",
+    "goToIPCamera": "Go to IP Camera"
+  },
+  "notifications": {
+    "fail": {
+      "title": "Error",
+      "text": "System Error"
+    },
+    "edit": {
+      "success": {
+        "title": "Edited successfully",
+        "text": "Reloading data"
+      },
+      "fail": {
+        "title": "Edit failed"
+      }
+    },
+    "delete": {
+      "success": {
+        "title": "Deleted successfully",
+        "text": "Reloading data"
+      },
+      "fail": {
+        "title": "Delete failed"
+      },
+      "confirmMessage": {
+        "text": "Are you sure you want to delete this Licence Plate?"
+      }
+    },
+    "captureImage": {
+      "success": {
+        "title": "Vehicles found!"
+      },
+      "fail": {
+        "text": "No vehicles found!"
+      }
+    },
+    "emptyDate": {
+      "title": "No selected date",
+      "text": "Please select the date!"
+    },
+    "signIn": {
+      "success": {
+        "title": "Sign In succeed",
+        "text": "Redirecting to Homepage!"
+      },
+      "fail": {
+        "title": "Sign In failed",
+        "text": "Please try again!"
+      }
+    },
+    "register": {
+      "success": {
+        "title": "Registered successfully",
+        "text": "Reloading data"
+      },
+      "fail": {
+        "title": "Register failed",
+        "text": "Please input correctly"
+      }
+    }
+  }
+}
