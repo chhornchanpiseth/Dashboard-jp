@@ -1,7 +1,7 @@
 import axios from "axios";
 import cookie from "./cookie";
-const baseURL = "http://192.168.7.30:3001/api";     // change from 3000 to 3001
-// const baseURL = "http://localhost:3000/api";
+const baseURL = "http://192.168.0.56:3000/api";   
+// change to new ip bos new server(192.168.0.56)
 
 
 export const signin = async (signinUser) => {

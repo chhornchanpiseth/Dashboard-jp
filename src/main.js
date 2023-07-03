@@ -17,7 +17,7 @@ Vue.component("downloadExcel", JsonExcel);
 
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: 'http://192.168.7.30:3001',   // changes from port 3000 to 3001
+  connection: 'http://192.168.0.56:3000',
   vuex: {
     store,
     actionPrefix: 'SOCKET_',
