@@ -143,6 +143,7 @@ export default new Vuex.Store({
       if(context.state.sort=='date') context.state.sort = "time"
       if(context.state.sort) query_url += `&sortBy=${context.state.sort}:${context.state.sortOrder}`
       const data = await makeGetRequest(query_url)
+      console.log("DATA FROM SET PLATE", data)
       context.commit('setPlate', {data, collection})
       formatPlateTimeDate(context.state[collection].plates)
     },
