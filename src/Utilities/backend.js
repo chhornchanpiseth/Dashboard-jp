@@ -1,6 +1,6 @@
 import axios from "axios";
 import cookie from "./cookie";
-const baseURL = "http://192.168.0.56:3000/api";   
+const baseURL = "http://localhost:3000/api";   
 // change to new ip bos new server(192.168.0.56)
 
 
@@ -41,6 +41,7 @@ export const makeGetRequest = async (route) => {
   const token = cookie.getCookie("auth-token");
   //concat the route and the baseURL together for example, our baseURL is http://localhost:3000 and route is /user => we get http://localhost:3000/user
   const url = baseURL + route;
+  console.log("MAKE GET REQUEST" , url)
   const response = await axios.get(url, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -50,6 +51,7 @@ export const makePostRequest = async (route, data, alterRoute) => {
   const token = cookie.getCookie("auth-token");
   let url = baseURL + route;
   if(alterRoute) url = alterRoute
+  console.log("MAKE POST REQUEST ",url)
   const response = await axios.post(url, data, {
     headers: { Authorization: `Bearer ${token}` },
   });

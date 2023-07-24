@@ -39,20 +39,19 @@
         <v-card flat>
           <v-card-text class="my-1 plate_format text-center">
             <v-row>
-              <span
+              <v-col cols="4" sm="12" class="text-center">
+                <span
                 class="blue--text text--darken-4 font-weight-bold mx-auto my-n2"
-                >{{ item.organization_name_khmer }}</span
-              >
-            </v-row>
-            <v-row>
-              <span class="black--text font-weight-bold pa-2 mx-auto">{{
-                item.plate_number
-              }}</span>
-            </v-row>
-            <v-row class>
-              <span class="red--text body-2 font-weight-bold mx-auto my-n2">{{
-                item.organization_name
-              }}</span>
+                >
+                
+                  {{ item.place_name }} {{ item.classification_number }}
+                </span>
+              </v-col>
+              <v-col cols="4" sm="12" class="text-center">
+                <span class="black--text font-weight-bold pa-2 mx-auto">  
+                {{ item.kana_text }}  {{item.plate_number}}
+                </span>
+              </v-col>
             </v-row>
           </v-card-text>
         </v-card>

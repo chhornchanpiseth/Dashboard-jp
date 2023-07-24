@@ -83,36 +83,35 @@
                   <v-col cols="10" md="6" lg="6">
                     <v-autocomplete
                       class="purple-input"
-                      :label="$t('organization_name')"
+                      :label="$t('place_name')"
                       :rules="[(v) => !!v || 'Required']"
                       v-model="data[fields[5]]"
-                      :items="$store.state.organizationPlate"
-                      item-text="plateEN"
+                      :items="$store.state.places_name"
                       required
-                      @input="mapPlate('EN', data[fields[5]])"
                     />
                   </v-col>
                   <v-col cols="10" md="6" lg="6">
                     <v-autocomplete
                       class="purple-input"
-                      :label="$t('organization_name_khmer')"
+                      :label="$t('kana_text')"
                       :rules="[(v) => !!v || 'Required']"
                       v-model="data[fields[6]]"
-                      :items="$store.state.organizationPlate"
-                      item-text="plateKH"
+                      :items="$store.state.kana_text"
                       required
-                      @input="mapPlate('KH', data[fields[6]])"
                     />
                   </v-col>
                   <v-col cols="10" md="6" lg="5">
                     <v-text-field
                       v-if="fields[7]"
                       class="purple-input"
-                      :label="$t('reason_why_bad_plate')"
+                      :label="$t('classification_number')"
+                      :rules="[(v) => !!v || 'Required']"
+
                       v-model="data[fields[7]]"
                       :items="badStatus"
                     />
                   </v-col>
+                  
                 </v-row>
               </v-container>
             </v-form>

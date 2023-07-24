@@ -40,19 +40,20 @@
                 <span
                 class="blue--text text--darken-4 font-weight-bold mx-auto my-n2"
                 >
-                  {{ item.organization_name_khmer }}
+                
+                  {{ item.place_name }} {{ item.classification_number }}
                 </span>
               </v-col>
               <v-col cols="4" sm="12" class="text-center">
                 <span class="black--text font-weight-bold pa-2 mx-auto">  
-                  {{item.plate_number}}
+                {{ item.kana_text }}  {{item.plate_number}}
                 </span>
               </v-col>
-              <v-col cols="4" sm="12" class="text-center">
+              <!-- <v-col cols="4" sm="12" class="text-center">
                 <span class="red--text body-2 font-weight-bold mx-auto my-n2">
-                  {{item.organization_name}}
+                  {{item.classification_number}}
                 </span>
-              </v-col>
+              </v-col> -->
             </v-row>
           </v-card-text>
         </v-card>
@@ -435,8 +436,12 @@ export default {
       "role",
       "vehicle_type",
       "plate_number",
-      "organization_name",
-      "organization_name_khmer",
+      // Make channges JP
+      // "organization_name",
+      // "organization_name_khmer",
+      "place_name" , 
+      "kana_text" , 
+      "classification_number" ,
     ],
   }),
   methods: {
@@ -453,9 +458,14 @@ export default {
       this.dialog = true;
     },
     getImgUrl(time, location) {
+      console.log("GET IMAGE URL EXEC") 
+      console.log(time)
+      console.log(location)
       if (location in this.$store.state.location_kh_to_eng) location = this.$store.state.location_kh_to_eng[location];
       const place = location.replace(" ", '').toLowerCase();
-      return `http://192.168.0.50:3000/${place}/${time}.png`
+      const modifiedTime = time.replace(/:/g, '_');
+      console.log(modifiedTime)
+      return `http://localhost:3000/${place}/${modifiedTime}.png`
     },
     openDialog(img) {
       this.dialogImg = img;
