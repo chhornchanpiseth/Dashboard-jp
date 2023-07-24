@@ -1,0 +1,150 @@
+{
+  "current"            : "リゾートにいると",
+  "total_plate_number" : "合計ナンバープレート",
+  "known_plate"        : "認識されたナンバープレート",
+  "unknown_plate"      : "不明なナンバープレート",
+  "known_license"      : "認識されたナンバープレート",
+  "bad_plate"          : "悪いナンバープレート",
+  "dashboard"          : "ダッシュボード",
+  "plate_logs"         : "車両ログ",
+  "limitPage"          : "ページごとのナンバープレート",
+  "status"             : "方向",
+  "fullname"          : "フルネーム",
+  "email"              : "Eメール",
+  "phone"       : "電話番号",
+  "role"      : "ポジション",
+  "male"               : "男",
+  "female"             : "女性",
+  "age"                : "年",
+  "vehicle_type"      : "車種",
+  "plate_number"       : "ナンバープレート",
+  "organization_name"       : "機関名",
+  "organization_name_khmer"        : "日本の機関名",
+  "reason_why_bad_plate" : "なぜナンバープレートが悪いのでしょうか？",
+  "change_language"    : "言語を変えてください",
+  "submit"             : "送信",
+  "cancel"             : "キャンセル",
+  "plate_num_is_required": "ナンバープレートの挿入が必要です",
+  "required"           : "必要",
+  "search"             : "検索",
+  "sign_out"           : "離れる",
+  "delete"             : "消去",
+  "select_specific_date" : "スケジュールごとに車両ログを表示する",
+  "generate_daily_data" : "毎日の車両ログ",
+  "plate_log"           : "車両ログ",
+  "license_plate"       : "ナンバープレート",
+  "location"            : "位置",
+  "approved_by"         : "記者",
+  "date"                : "日にち",
+  "time"                : "時間",
+  "direction"           : "方向",
+  "image"               : "ピクチャー",
+  "type"                : "カテゴリー",
+  "name"                : "名前",
+  "view"                : "見る",
+  "others"              : "他の",
+  "reason"              : "目的",
+  "origin"              : "住居",
+  "stay"                : "止まる",
+  "pass_by"             : "終えた",
+  "visit"               : "訪問",
+  "num_people"          : "人々の数",
+  "temperature"         : "熱",
+  "nationality"         : "民族",
+  "local"               : "日本",
+  "foreigner"           : "外国",
+  "edit_mode"           : "編集",
+  "goToPage"            : "ページに移動",
+  "plate_management"     : "車両管理",
+  "currently"            : "リゾートにいると",
+  "detailInformation"   : "詳しくは",
+  "in"                : "ログイン",
+  "out"               : "出口",
+  "outasek"           :"outasek",
+  "whiteshop"       : "whiteshop",
+  "occupation" : {
+    "student": "学生",
+    "staff": "スタッフ",
+    "lecturer": "教師"
+  },
+  "vehicles" : {
+    "car"                  : "車",
+    "motorbike"            :"オートバイ",
+    "bus"                  : "バス"
+  },
+  "signIn": {
+    "signIn": "データを入力してください",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "logIn": "ログイン",
+    "forgotPassword": "パスワードをお忘れですか",
+    "help": "ヘルプ"
+  },
+  "button": {
+    "ok" : "決めた",
+    "cancel" : "キャンセル",
+    "clear" : "クリア",
+    "generate" : "ナンバープレートをキャッチ",
+    "capture" : "写真をキャプチャする",
+    "goToIPCamera": "カメラを見に行く"
+  },
+  "notifications": {
+    "fail": {
+      "title": "問題があります",
+      "text": "システムの問題"
+    },
+    "edit": {
+      "success": {
+        "title": "編集が完了しました",
+        "text": "読み込み中"
+      },
+      "fail": {
+        "title": "編集の問題"
+      }
+    },
+    "delete": {
+      "success": {
+        "title": "削除が完了しました",
+        "text": "読み込み中"
+      },
+      "fail": {
+        "title": "削除の問題"
+      },
+      "confirmMessage": {
+        "text": "本当にこのナンバープレートを削除してもよろしいですか?"
+      }
+    },
+    "captureImage": {
+      "success": {
+        "title": "車両が見つかりました"
+      },
+      "fail": {
+        "text": "車両が見つかりません"
+      }
+    },
+    "emptyDate": {
+      "title": "日付が選択されていません",
+      "text": "日を選択してください"
+    },
+    "signIn": {
+      "success": {
+        "title": "正しいアカウントを入力してください",
+        "text": "帰宅する"
+      },
+      "fail": {
+        "title": "間違ったアカウント入力",
+        "text": "もう一度試してください。"
+      }
+    },
+    "register": {
+      "success": {
+        "title": "登録完了",
+        "text": "読み込み中"
+      },
+      "fail": {
+        "title": "登録問題",
+        "text": "正しくご記入ください。"
+      }
+    }
+  }
+}

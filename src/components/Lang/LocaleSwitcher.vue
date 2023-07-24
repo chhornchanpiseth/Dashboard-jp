@@ -35,9 +35,9 @@ export default {
   data: () => ({
     langs: [
       {title: "English", value:'en'},
-      {title: "ខ្មែរ", value: 'kh'}
+      {title: "日本", value: 'jp'}
       ],
-    language: (i18n.locale === "kh") ? "ខ្មែរ"  : "English",
+    language: (i18n.locale === "jp") ? "日本"  : "English",
   }),
   methods: {
     changeLocale(lang) {

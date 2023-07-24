@@ -189,7 +189,7 @@
                     v-model="wrongData.orgnization_name_khmer"
                     :items="$store.state.organizationPlate"
                     item-text="plateKH"
-                    @input="mapPlate('KH', wrongData.orgnization_name_khmer)"
+                    @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
                     required
                   />
                 </v-col>
@@ -214,7 +214,7 @@
                     :label="$t('origin')"
                     :items="$store.state.organizationPlate"
                     item-text="plateKH"
-                    @input="mapPlate('KH', wrongData.orgnization_name_khmer)"
+                    @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
                     required
                   />
                 </v-col>
@@ -461,7 +461,7 @@ export default {
       console.log("GET IMAGE URL EXEC") 
       console.log(time)
       console.log(location)
-      if (location in this.$store.state.location_kh_to_eng) location = this.$store.state.location_kh_to_eng[location];
+      if (location in this.$store.state.location_jp_to_eng) location = this.$store.state.location_jp_to_eng[location];
       const place = location.replace(" ", '').toLowerCase();
       const modifiedTime = time.replace(/:/g, '_');
       console.log(modifiedTime)
@@ -490,14 +490,14 @@ export default {
       this.wrongData.num_people = plate_object.num_people
       this.wrongData.phone_number = plate_object.phone_number
       if(this.$i18n.locale === "en") {
-        this.wrongData.reason = this.$store.state.reason_kh_to_eng[plate_object.reason]
-        this.wrongData.vehicle_type = this.$store.state.vehicle_type_kh_to_eng[plate_object.vehicle_type]
+        this.wrongData.reason = this.$store.state.reason_jp_to_eng[plate_object.reason]
+        this.wrongData.vehicle_type = this.$store.state.vehicle_type_jp_to_eng[plate_object.vehicle_type]
         this.wrongData.status = plate_object.status
       }
       else {
         this.wrongData.reason = plate_object.reason
         this.wrongData.vehicle_type = plate_object.vehicle_type
-        this.wrongData.status = (this.$route.path ===`/${this.$i18n.locale}/currently_in`) ? this.$t('in', 'kh') : this.$t(plate_object.status.toLowerCase(), 'kh')
+        this.wrongData.status = (this.$route.path ===`/${this.$i18n.locale}/currently_in`) ? this.$t('in', 'jp') : this.$t(plate_object.status.toLowerCase(), 'jp')
       }
       this.wrongData.nationality = plate_object.nationality
       this.last_plate_object = plate_object
@@ -516,12 +516,12 @@ export default {
         organization_name_khmer: wrongData.orgnization_name_khmer,
         origin: wrongData.orgnization_name_khmer,
         temperature: wrongData.temperature,
-        reason: (this.$i18n.locale === "en") ? this.$t(wrongData.reason.toLowerCase().replace(' ', "_"), "kh"): wrongData.reason,
+        reason: (this.$i18n.locale === "en") ? this.$t(wrongData.reason.toLowerCase().replace(' ', "_"), "jp"): wrongData.reason,
         num_people: wrongData.num_people,
-        status : (this.$i18n.locale === "en") ? wrongData.status : this.$store.state.status_kh_to_eng[wrongData.status] ,
+        status : (this.$i18n.locale === "en") ? wrongData.status : this.$store.state.status_jp_to_eng[wrongData.status] ,
         phone_number: wrongData.phone_number,
         nationality : wrongData.nationality,
-        vehicle_type :  (this.$i18n.locale === "en") ? this.$t(`vehicles.${wrongData.vehicle_type.toLowerCase()}`, 'kh') : wrongData.vehicle_type,
+        vehicle_type :  (this.$i18n.locale === "en") ? this.$t(`vehicles.${wrongData.vehicle_type.toLowerCase()}`, 'jp') : wrongData.vehicle_type,
       }
       console.log(body)
       try {
@@ -575,7 +575,7 @@ export default {
         })
         this.wrongData.orgnization_name_khmer = this.$store.state.organizationPlate[index].plateKH
       }
-      else if (type === "KH") {
+      else if (type === "JP") {
         const index = this.$store.state.organizationPlate.findIndex(plate => {
         return plate.plateKH === selectedPlate
         })

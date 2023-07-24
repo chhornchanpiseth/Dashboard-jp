@@ -18,7 +18,7 @@ function loadLocaleMessages () {
 
 export default new VueI18n({
   globalInjection: true,
-  locale: 'kh',
+  locale: 'jp',
   fallbackLocale: 'en',
   messages: loadLocaleMessages()
 })

@@ -252,21 +252,21 @@ export default {
     loadingClearDate: false,
     loadingGenerateExcel: false,
     excelFields: {
-      កាលបរិច្ឆេទ: "date",
-      ម៉ោង: "timing",
-      ទីតាំង: "location",
-      ស្លាកលេខ: "plate_number",
-      "ឈ្មោះខេត្ត/ស្ថាប័ន": "organization_name_khmer",
-      ប្រភេទស្លាកលេខ: "type",
-      ប្រភេទយាន្តយន្ត: "vehicle_type",
-      ចំនួនមនុស្ស: "num_people",
-      ទិសដៅ: "status",
-      ជនជាតិ: "nationality",
-      ទីលំនៅ: "origin",
-      គោលបំណង: "reason",
-      លេខទូរស័ព្ទ: "phone_number",
-      កំដៅ: "temperature",
-      បានឃើញ: "approved",
+      日にち: "date",
+      時間: "timing",
+      位置: "location",
+      ナンバープレート: "plate_number",
+      "都道府県名/機関名": "organization_name_khmer",
+      ナンバープレートの種類: "type",
+      車両の種類: "vehicle_type",
+      人々の数: "num_people",
+      方向: "status",
+      民族: "nationality",
+      住居: "origin",
+      目的: "reason",
+      電話番号: "phone_number",
+      熱: "temperature",
+      見た: "approved",
     },
   }),
   methods: {
@@ -430,8 +430,8 @@ export default {
     },
 
     async captureImage() {
-      const location = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.location: this.$store.state.location_kh_to_eng[this.imageCaptureDetail.location]
-      const status = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.status: this.$store.state.status_kh_to_eng[this.imageCaptureDetail.status]
+      const location = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.location: this.$store.state.location_jp_to_eng[this.imageCaptureDetail.location]
+      const status = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.status: this.$store.state.status_jp_to_eng[this.imageCaptureDetail.status]
       const data = {
         "image_url": `${this.$store.state.imageURL[`${location}(${status})`]}/Streaming/channels/1/picture`,
         "status": status,
@@ -498,8 +498,8 @@ export default {
       else return this.$store.state.plate_logs.total_bad 
     },
     IPCamera() {
-      const location = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.location: this.$store.state.location_kh_to_eng[this.imageCaptureDetail.location]
-      const status = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.status: this.$store.state.status_kh_to_eng[this.imageCaptureDetail.status]
+      const location = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.location: this.$store.state.location_jp_to_eng[this.imageCaptureDetail.location]
+      const status = (this.$i18n.locale === 'en') ? this.imageCaptureDetail.status: this.$store.state.status_jp_to_eng[this.imageCaptureDetail.status]
       return `${this.$store.state.imageURL[`${location}(${status})`]}`
     },
     imageCaptureLocation: {
