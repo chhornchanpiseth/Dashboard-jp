@@ -126,15 +126,23 @@ export default {
       "role",
       "vehicle_type",
       "plate_number",
-      "organization_name",
-      "organization_name_khmer",
+      "place_name" , 
+      "kana_text" , 
+      "classification_number" , 
+      // "organization_name",
+      // "organization_name_khmer",
+
     ],
     editInfo: {
       fullname: '',
-      organization_name: '',
-      organization_name_khmer: '',
+      // organization_name: '',
+      // organization_name_khmer: '',
+      
       phone: '',
       plate_number: '',
+      place_name: '',
+      kana_text: '',
+      classification_number: '',
       role: '',
       vehicle_type: ''
     },
@@ -178,8 +186,12 @@ export default {
       this.editInfo.role = item.role
       this.editInfo.vehicle_type = item.vehicle_type
       this.editInfo.plate_number = item.plate_number
-      this.editInfo.organization_name = item.organization_name
-      this.editInfo.organization_name_khmer = item.organization_name_khmer
+      this.editInfo.place_name = item.place_name
+      this.editInfo.kana_text = item.kana_text
+      this.editInfo.classification_number = item.classification_number
+
+      // this.editInfo.organization_name = item.organization_name
+      // this.editInfo.organization_name_khmer = item.organization_name_khmer
     },
 
     // register known plate dialog function
@@ -250,11 +262,13 @@ export default {
       // console.log(this.editInfo)
       this.loadingSubmit = true
       try {
+        console.log("body") 
+        console.log(this.editInfo)
         const data = await makeEditRequest(
         `${type}/${item.plate_number}`, this.editInfo)
         console.log(data)
         this.getPlates(type)
-        this.$notify({ title: this.$t('notifications.edit.success.title') ,text: this.$t('notifications.edit.success.text'), type: "success" })
+        this.$notify({ title: this.$t ('notifications.edit.success.title') ,text: this.$t('notifications.edit.success.text'), type: "success" })
       }
       catch (err) {
         this.$notify({ title: this.$t('notifications.edit.fail.title') ,text: err, type: "error" })

@@ -436,8 +436,12 @@ export default {
       "role",
       "vehicle_type",
       "plate_number",
-      "organization_name",
-      "organization_name_khmer",
+      // Make channges JP
+      // "organization_name",
+      // "organization_name_khmer",
+      "place_name" , 
+      "kana_text" , 
+      "classification_number" ,
     ],
   }),
   methods: {
@@ -454,9 +458,14 @@ export default {
       this.dialog = true;
     },
     getImgUrl(time, location) {
+      console.log("GET IMAGE URL EXEC") 
+      console.log(time)
+      console.log(location)
       if (location in this.$store.state.location_kh_to_eng) location = this.$store.state.location_kh_to_eng[location];
       const place = location.replace(" ", '').toLowerCase();
-      return `http://192.168.0.50:3000/${place}/${time}.png`
+      const modifiedTime = time.replace(/:/g, '_');
+      console.log(modifiedTime)
+      return `http://localhost:3000/${place}/${modifiedTime}.png`
     },
     openDialog(img) {
       this.dialogImg = img;
