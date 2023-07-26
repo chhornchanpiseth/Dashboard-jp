@@ -104,7 +104,7 @@
                     <v-text-field
                       v-if="fields[7]"
                       class="purple-input"
-                      :label="$t('classification_number')"
+                      :label="$t('classification_num')"
                       :rules="[(v) => !!v || 'Required']"
 
                       v-model="data[fields[7]]"
@@ -170,7 +170,7 @@ export default {
         })
         this.data[this.fields[6]] = this.$store.state.organizationPlate[index].plateKH
       }
-      else if (type === "KH") {
+      else if (type === "JP") {
         const index = this.$store.state.organizationPlate.findIndex(plate => {
         return plate.plateKH === selectedPlate
         })

@@ -184,35 +184,35 @@
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
-                    :label="$t('organization_name_khmer')"
+                    :label="$t('place_name_japaness')"
                     :rules="[(v) => !!v || 'Required']"
                     v-model="wrongData.orgnization_name_khmer"
-                    :items="$store.state.organizationPlate"
+                    :items="$store.state.places_name"
                     item-text="plateKH"
                     @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
                     required
                   />
                 </v-col>
-                <v-col cols="12" md="6">
+                <!-- <v-col cols="12" md="6">
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
-                    :label="$t('organization_name')"
+                    :label="$t('place_name')"
                     :rules="[(v) => !!v || 'Required']"
                     v-model="wrongData.orgnization_name"
-                    :items="$store.state.organizationPlate"
+                     :items="$store.state.places_name"
                     item-text="plateEN"
                      @input="mapPlate('EN', wrongData.orgnization_name)"
                     required
                   />
-                </v-col>
+                </v-col> -->
                 <v-col cols="10" md="6" lg="4">
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
                     v-model="wrongData.orgnization_name_khmer"
                     :label="$t('origin')"
-                    :items="$store.state.organizationPlate"
+                    :items="$store.state.places_name"
                     item-text="plateKH"
                     @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
                     required
@@ -233,9 +233,9 @@
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
-                    :label="$t('reason')"
+                    :label="$t('kana_text')"
                     v-model="wrongData.reason"
-                    :items="[$t('stay'), $t('pass_by'), $t('visit')]"
+                    :items="$store.state.kana_text"
                   />
                 </v-col>
                 <v-col cols="10" md="6" lg="2">
@@ -251,7 +251,7 @@
                     v-model="wrongData.num_people"
                     :disabled="!editMode"
                     class="purple-input"
-                    :label="$t('num_people')"
+                    :label="$t('classification_num')"
                     type="number"
                     
                   />
@@ -420,10 +420,12 @@ export default {
     approvedPlate: true,
     additionalData: [
       "plate_number",
-      "orgnization_name",
-      "orgnization_name_khmer",
-      "reason",
-      "num_people",
+      // change from orgnization_name to place name
+      "place_name",
+      "place_name_japaness",
+      // change from reason to kana_text
+      "kana_text",
+      "classification_num", // from num_people
       "origin",
       "temperature",
       "phone_number",
