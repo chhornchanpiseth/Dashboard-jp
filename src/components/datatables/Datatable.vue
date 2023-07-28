@@ -41,12 +41,13 @@
                 class="blue--text text--darken-4 font-weight-bold mx-auto my-n2"
                 >
                 
-                  {{ item.place_name }} {{ item.classification_number }}
+                  <!-- {{ item.place_name }} {{ item.num_people }} -->
+                  {{ item.organization_name }} {{ item.num_people }}
                 </span>
               </v-col>
               <v-col cols="4" sm="12" class="text-center">
                 <span class="black--text font-weight-bold pa-2 mx-auto">  
-                {{ item.kana_text }}  {{item.plate_number}}
+                {{ item.reason }}  {{item.plate_number}}
                 </span>
               </v-col>
               <!-- <v-col cols="4" sm="12" class="text-center">
@@ -180,44 +181,61 @@
                     :label="$t('plate_number')"
                   />
                 </v-col>
-                <v-col cols="12" md="6">
+                <!-- <v-col cols="12" md="6">
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
                     :label="$t('place_name_japaness')"
                     :rules="[(v) => !!v || 'Required']"
                     v-model="wrongData.orgnization_name_khmer"
-                    :items="$store.state.places_name"
-                    item-text="plateKH"
+                    :items="$store.state.organizationPlate"
+                    item-text="plateEN"
                     @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
                     required
                   />
                 </v-col>
-                <!-- <v-col cols="12" md="6">
+               
+                <v-col cols="10" md="6" lg="4">
+                  <v-autocomplete
+                    class="purple-input"
+                    :disabled="!editMode"
+                    v-model="wrongData.organization_name"
+                    :label="$t('origin')"
+                    :items="$store.state.organizationPlate"
+                    item-text="plateEN"
+                    @input="mapPlate('JP', wrongData.organization_name)"
+                    required
+                  />
+                </v-col> -->
+
+                <v-col cols="12" md="6">
+                  <v-autocomplete
+                    class="purple-input"
+                    :disabled="!editMode"
+                    :label="$t('orgin')"
+                    :rules="[(v) => !!v || 'Required']"
+                    v-model="wrongData.orgnization_name"
+                    :items="$store.state.organizationPlate"
+                    item-text="plateEN"
+                     @input="mapPlate('EN', wrongData.orgnization_name)"
+                    required
+                  />
+                </v-col>
+
+                <v-col cols="12" md="6">
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
                     :label="$t('place_name')"
                     :rules="[(v) => !!v || 'Required']"
-                    v-model="wrongData.orgnization_name"
-                     :items="$store.state.places_name"
-                    item-text="plateEN"
-                     @input="mapPlate('EN', wrongData.orgnization_name)"
-                    required
-                  />
-                </v-col> -->
-                <v-col cols="10" md="6" lg="4">
-                  <v-autocomplete
-                    class="purple-input"
-                    :disabled="!editMode"
                     v-model="wrongData.orgnization_name_khmer"
-                    :label="$t('origin')"
-                    :items="$store.state.places_name"
+                    :items="$store.state.organizationPlate"
                     item-text="plateKH"
-                    @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
+                    @input="mapPlate('KH', wrongData.orgnization_name_khmer)"
                     required
                   />
                 </v-col>
+                
                   <v-col cols="10" md="6" lg="3">
                   <v-autocomplete
                     class="purple-input"
@@ -404,7 +422,8 @@ export default {
     loadingDeleteDialog: false,
     wrongData: {
       approved_by: "",
-      reason: "",
+      // kana_text: "",
+      reason : "",
       num_people: "",
       status:  "",
       vehicle_type: "",
@@ -424,8 +443,9 @@ export default {
       "place_name",
       "place_name_japaness",
       // change from reason to kana_text
-      "kana_text",
-      "classification_num", // from num_people
+      //"kana_text"
+      "reason",
+      "num_people", // from num_people
       "origin",
       "temperature",
       "phone_number",
@@ -439,11 +459,11 @@ export default {
       "vehicle_type",
       "plate_number",
       // Make channges JP
-      // "organization_name",
-      // "organization_name_khmer",
+      "organization_name",
+      "organization_name_khmer",
       "place_name" , 
-      "kana_text" , 
-      "classification_number" ,
+      // "kana_text" , 
+      "num_people" ,
     ],
   }),
   methods: {
@@ -492,7 +512,8 @@ export default {
       this.wrongData.num_people = plate_object.num_people
       this.wrongData.phone_number = plate_object.phone_number
       if(this.$i18n.locale === "en") {
-        this.wrongData.reason = this.$store.state.reason_jp_to_eng[plate_object.reason]
+        this.wrongData.reason = plate_object.reason
+        // this.wrongData.reason = this.$store.state.reason_jp_to_eng[plate_object.reason]
         this.wrongData.vehicle_type = this.$store.state.vehicle_type_jp_to_eng[plate_object.vehicle_type]
         this.wrongData.status = plate_object.status
       }
@@ -518,7 +539,8 @@ export default {
         organization_name_khmer: wrongData.orgnization_name_khmer,
         origin: wrongData.orgnization_name_khmer,
         temperature: wrongData.temperature,
-        reason: (this.$i18n.locale === "en") ? this.$t(wrongData.reason.toLowerCase().replace(' ', "_"), "jp"): wrongData.reason,
+        // reason: (this.$i18n.locale === "en") ? this.$t(wrongData.reason.toLowerCase().replace(' ', "_"), "jp"): wrongData.reason,
+        reason : wrongData.reason,
         num_people: wrongData.num_people,
         status : (this.$i18n.locale === "en") ? wrongData.status : this.$store.state.status_jp_to_eng[wrongData.status] ,
         phone_number: wrongData.phone_number,
