@@ -108,7 +108,6 @@
                       :rules="[(v) => !!v || 'Required']"
 
                       v-model="data[fields[7]]"
-                      :items="badStatus"
                     />
                   </v-col>
                   

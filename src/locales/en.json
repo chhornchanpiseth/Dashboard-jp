@@ -21,6 +21,7 @@
   "kana_text" : "Kana Text",
   "place_name" : "Place Name",
   "classification_number" : "Classification Number",
+  "classification_num" :  "Classification Number",
   "organization_name"       : "Organization Plate English",
   "organization_name_khmer"        : "Organization Plate Khmer",
   "reason_why_bad_plate" : "Why is it a bad plate?",

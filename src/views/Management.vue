@@ -233,6 +233,8 @@ export default {
 
     // registerPlates function
     async registerPlate(item, type, form ) {
+      console.log("Register Plate" , item , type)
+
       this.loadingSubmit = true
       if( form.validate()) {
         try {
@@ -260,6 +262,7 @@ export default {
     // submit Plates function
     async submitPlate(item, type) {
       // console.log(this.editInfo)
+      console.log("Submit Plate" , item , type)
       this.loadingSubmit = true
       try {
         console.log("body") 
@@ -281,6 +284,8 @@ export default {
 
     // delete plate
     async deletePlate(id, type) {
+      console.log("Delete Plate Plate" , id , type)
+
       let response = confirm( this.$t('notifications.delete.confirmMessage.text'))
       if (response) {
         this.loadingDelete = true
