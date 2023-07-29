@@ -45,7 +45,12 @@ export default new Vuex.Store({
     },
     location_jp_to_eng: {"オタセク": "Ou Tasek", "ウィズ": "White Shop"},
     vehicle_type_jp_to_eng: {"車": "Car", "オートバイ" :"Motorbike", "バス" : "Bus"},
+    vehicle_type_eng_to_jp: { "Car" : "車", "Motorbike" : "オートバイ" , "Bus" : "バス" },
+
     status_jp_to_eng: {"出口": "Out", "ログイン": "In"},
+    status_eng_to_jp : {"Out" : "出口", "In" : "ログイン"},
+
+    nationality_eng_to_jp : {"Foreigner" : "外国人", "Khmer" : "カンボジア人"},
     // reason_jp_to_eng: {"お":"a", "ね":"b", "む":"c"},
     // reason_jp_to_eng: {"お":"a", "ね":"a", "む":"a","あ":"b","い":"a","a":"d","え":"f","か":"g","き":"a","く":"a","け":"a","こ":"a","を":"a", "さ":"a","す":"f","せ":"f","そ":"f","た-と":"f","の":"f","は":"f","ひ":"f","ふ":"f","ほ":"f","ま-も":"f","や":"f","ゆ":"f","ら":"f","り":"f","る":"f"},
     kana_text : ['お', "ね","む","あ","い","う","え","か","き","く","け","こ","を" , "さ","す","せ","そ","た-と","の","は","ひ","ふ","ほ","ま-も","や","ゆ","ら","り","る"] ,
