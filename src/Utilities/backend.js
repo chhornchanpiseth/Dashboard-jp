@@ -71,6 +71,7 @@ export const makeDeleteRequest = async (route, plate_data) => {
 export const makeEditRequest = async (route, data) => {
   const token = cookie.getCookie("auth-token");
   const url = baseURL + route;
+  console.log("URL", url)
   const response = await axios.patch(url, data, {
     headers: { Authorization: `Bearer ${token}` },
   });
