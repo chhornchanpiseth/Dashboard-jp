@@ -186,10 +186,10 @@
                     :disabled="!editMode"
                     :label="$t('place_name_japaness')"
                     :rules="[(v) => !!v || 'Required']"
-                    v-model="wrongData.orgnization_name_khmer"
+                    v-model="wrongData.place_name"
                     :items="$store.state.places_name"
                     item-text="plateKH"
-                    @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
+                    @input="mapPlate('JP', wrongData.place_name)"
                     required
                   />
                 </v-col>
@@ -210,11 +210,11 @@
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
-                    v-model="wrongData.orgnization_name_khmer"
+                    v-model="wrongData.organizationPlate"
                     :label="$t('origin')"
-                    :items="$store.state.places_name"
+                    :items="$store.state.organizationPlate"
                     item-text="plateKH"
-                    @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
+                    @input="mapPlate('JP', wrongData.organizationPlate)"
                     required
                   />
                 </v-col>
@@ -234,7 +234,7 @@
                     class="purple-input"
                     :disabled="!editMode"
                     :label="$t('kana_text')"
-                    v-model="wrongData.reason"
+                    v-model="wrongData.kana_text"
                     :items="$store.state.kana_text"
                   />
                 </v-col>
