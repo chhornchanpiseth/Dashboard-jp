@@ -129,6 +129,7 @@ export default {
       "place_name" , 
       "kana_text" , 
       "classification_number" , 
+      "license_plate"
       // "organization_name",
       // "organization_name_khmer",
 
@@ -144,7 +145,8 @@ export default {
       kana_text: '',
       classification_number: '',
       role: '',
-      vehicle_type: ''
+      vehicle_type: '' ,
+      license_plate : '' 
     },
     registerInfo: {},
     knownPlates: [],
@@ -169,7 +171,7 @@ export default {
         else if ( type === "/bad_plates" ) {
           this.badPlates = data
         }
-        console.log(data)
+   
       }
       catch (err) {
         console.log(err)
@@ -189,7 +191,7 @@ export default {
       this.editInfo.place_name = item.place_name
       this.editInfo.kana_text = item.kana_text
       this.editInfo.classification_number = item.classification_number
-
+      this.editInfo.license_plate = item.license_plate
       // this.editInfo.organization_name = item.organization_name
       // this.editInfo.organization_name_khmer = item.organization_name_khmer
     },
@@ -233,6 +235,7 @@ export default {
 
     // registerPlates function
     async registerPlate(item, type, form ) {
+
       this.loadingSubmit = true
       if( form.validate()) {
         try {
@@ -259,13 +262,11 @@ export default {
 
     // submit Plates function
     async submitPlate(item, type) {
-      // console.log(this.editInfo)
       this.loadingSubmit = true
       try {
-        console.log("body") 
-        console.log(this.editInfo)
+       
         const data = await makeEditRequest(
-        `${type}/${item.plate_number}`, this.editInfo)
+        `${type}/${item.license_plate}`, this.editInfo)
         console.log(data)
         this.getPlates(type)
         this.$notify({ title: this.$t ('notifications.edit.success.title') ,text: this.$t('notifications.edit.success.text'), type: "success" })
@@ -281,6 +282,7 @@ export default {
 
     // delete plate
     async deletePlate(id, type) {
+
       let response = confirm( this.$t('notifications.delete.confirmMessage.text'))
       if (response) {
         this.loadingDelete = true

@@ -71,8 +71,14 @@
   "vehicles" : {
     "car"                  : "車",
     "motorbike"            :"オートバイ",
-    "bus"                  : "バス"
+    "bus"                  : "バス" ,
+    "Car" : "車" ,
+    "Motorbike" : "オートバイ" ,
+    "Bus" : "バス" 
   },
+  "Car" : "車" ,
+  "Motorbike" : "オートバイ" ,
+  "Bus" : "バス"  , 
   "signIn": {
     "signIn": "データを入力してください",
     "username": "ユーザー名",

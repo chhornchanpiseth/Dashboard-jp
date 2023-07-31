@@ -70,7 +70,7 @@
         <v-btn icon @click="openEditDialog(item, type)">
           <v-icon small>{{ view }}</v-icon>
         </v-btn>
-        <v-btn icon color="red" x-small @click="deletePlate(item.plate_number, type)">
+        <v-btn icon color="red" x-small @click="deletePlate(item.license_plate, type)">
           <v-icon>{{ remove }}</v-icon>
         </v-btn>
       </template>

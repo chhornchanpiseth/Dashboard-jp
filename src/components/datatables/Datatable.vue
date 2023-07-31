@@ -41,6 +41,7 @@
                 class="blue--text text--darken-4 font-weight-bold mx-auto my-n2"
                 >
                 
+                  <!-- {{ item.place_name }} {{ item.classification_number }} -->
                   {{ item.place_name }} {{ item.classification_number }}
                 </span>
               </v-col>
@@ -180,44 +181,61 @@
                     :label="$t('plate_number')"
                   />
                 </v-col>
-                <v-col cols="12" md="6">
+                <!-- <v-col cols="12" md="6">
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
                     :label="$t('place_name_japaness')"
                     :rules="[(v) => !!v || 'Required']"
-                    v-model="wrongData.place_name"
-                    :items="$store.state.places_name"
-                    item-text="plateKH"
-                    @input="mapPlate('JP', wrongData.place_name)"
+                    v-model="wrongData.orgnization_name_khmer"
+                    :items="$store.state.organizationPlate"
+                    item-text="plateEN"
+                    @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
                     required
                   />
                 </v-col>
-                <!-- <v-col cols="12" md="6">
+               
+                <v-col cols="10" md="6" lg="4">
+                  <v-autocomplete
+                    class="purple-input"
+                    :disabled="!editMode"
+                    v-model="wrongData.place_name"
+                    :label="$t('origin')"
+                    :items="$store.state.organizationPlate"
+                    item-text="plateEN"
+                    @input="mapPlate('JP', wrongData.place_name)"
+                    required
+                  />
+                </v-col> -->
+
+                <v-col cols="12" md="6">
+                  <v-autocomplete
+                    class="purple-input"
+                    :disabled="!editMode"
+                    :label="$t('orgin')"
+                    :rules="[(v) => !!v || 'Required']"
+                    v-model="wrongData.place_name"
+                    :items="$store.state.organizationPlate"
+                    item-text="plateEN"
+                     @input="mapPlate('EN', wrongData.place_name)"
+                    required
+                  />
+                </v-col>
+
+                <v-col cols="12" md="6">
                   <v-autocomplete
                     class="purple-input"
                     :disabled="!editMode"
                     :label="$t('place_name')"
                     :rules="[(v) => !!v || 'Required']"
-                    v-model="wrongData.orgnization_name"
-                     :items="$store.state.places_name"
-                    item-text="plateEN"
-                     @input="mapPlate('EN', wrongData.orgnization_name)"
-                    required
-                  />
-                </v-col> -->
-                <v-col cols="10" md="6" lg="4">
-                  <v-autocomplete
-                    class="purple-input"
-                    :disabled="!editMode"
-                    v-model="wrongData.organizationPlate"
-                    :label="$t('origin')"
+                    v-model="wrongData.organization_name_khmer"
                     :items="$store.state.organizationPlate"
                     item-text="plateKH"
-                    @input="mapPlate('JP', wrongData.organizationPlate)"
+                    @input="mapPlate('KH', wrongData.organization_name_khmer)"
                     required
                   />
                 </v-col>
+                
                   <v-col cols="10" md="6" lg="3">
                   <v-autocomplete
                     class="purple-input"
@@ -248,7 +266,7 @@
                 </v-col>
                  <v-col cols="10" md="6" lg="3">
                   <v-text-field
-                    v-model="wrongData.num_people"
+                    v-model="wrongData.classification_number"
                     :disabled="!editMode"
                     class="purple-input"
                     :label="$t('classification_num')"
@@ -273,7 +291,7 @@
                     :label="$t('phone')"
                   />
                 </v-col>
-                <v-col cols="10" md="6" lg="3">
+                <!-- <v-col cols="10" md="6" lg="3">
                   <v-autocomplete
                     class="purple-input"
                     :label="$t('nationality')"
@@ -282,7 +300,7 @@
                     :items="[$t('local'), $t('foreigner')]"
                     required
                   />      
-                </v-col>
+                </v-col> -->
               </v-row>
               <v-card-actions>
                 <v-btn
@@ -404,8 +422,11 @@ export default {
     loadingDeleteDialog: false,
     wrongData: {
       approved_by: "",
-      reason: "",
-      num_people: "",
+      // kana_text: "",
+      kana_text : "",
+      classification_number: "",
+      place_name : "" ,
+      organization_name_khmer : "" , 
       status:  "",
       vehicle_type: "",
       origin: "",
@@ -423,9 +444,10 @@ export default {
       // change from orgnization_name to place name
       "place_name",
       "place_name_japaness",
-      // change from reason to kana_text
+      // change from kana_text to kana_text
+      // "kana_text"
       "kana_text",
-      "classification_num", // from num_people
+      "classification_number", // from classification_number
       "origin",
       "temperature",
       "phone_number",
@@ -439,10 +461,11 @@ export default {
       "vehicle_type",
       "plate_number",
       // Make channges JP
-      // "organization_name",
-      // "organization_name_khmer",
+      "place_name",
+      "organization_name_khmer",
       "place_name" , 
-      "kana_text" , 
+      // "kana_text" , 
+      "kana_text" ,
       "classification_number" ,
     ],
   }),
@@ -460,20 +483,18 @@ export default {
       this.dialog = true;
     },
     getImgUrl(time, location) {
-      console.log("GET IMAGE URL EXEC") 
-      console.log(time)
-      console.log(location)
+     
       if (location in this.$store.state.location_jp_to_eng) location = this.$store.state.location_jp_to_eng[location];
       const place = location.replace(" ", '').toLowerCase();
       const modifiedTime = time.replace(/:/g, '_');
-      console.log(modifiedTime)
-      return `http://localhost:3000/${place}/${modifiedTime}.png`
+      return `http://192.168.0.56:3000/${place}/${modifiedTime}.png`
     },
     openDialog(img) {
       this.dialogImg = img;
       this.dialogImgOn = true;
     },
     editWrongData(plate_object) {
+      console.log("PLATE OBJ " , plate_object)
       // console.log(plate_object)
       if (plate_object.approved == false) {
         this.editMode = true;
@@ -486,44 +507,62 @@ export default {
       this.$store.state.security.sort()
       this.wrongData.plate_number = plate_object.plate_number;
       this.wrongData.orgnization_name_khmer = plate_object.organization_name_khmer;
-      this.wrongData.orgnization_name = plate_object.organization_name;
-      this.wrongData.origin = this.wrongData.orgnization_name_khmer
+      this.wrongData.orgnization_name = plate_object.place_name;
+      this.wrongData.origin = this.wrongData.place_name
       this.wrongData.temperature = plate_object.temperature
-      this.wrongData.num_people = plate_object.num_people
+      this.wrongData.classification_number = plate_object.classification_number
       this.wrongData.phone_number = plate_object.phone_number
-      if(this.$i18n.locale === "en") {
-        this.wrongData.reason = this.$store.state.reason_jp_to_eng[plate_object.reason]
-        this.wrongData.vehicle_type = this.$store.state.vehicle_type_jp_to_eng[plate_object.vehicle_type]
-        this.wrongData.status = plate_object.status
+      this.wrongData.place_name = plate_object.place_name
+      this.wrongData.organization_name_khmer = plate_object.organization_name_khmer
+      if(this.$i18n.locale === "jp") {
+        console.log("Locale " ,this.$i18n.locale)
+        console.log("Vehicle type" , plate_object.vehicle_type)
+        console.log(this.$store.state.vehicle_type_jp_to_eng[plate_object.vehicle_type])
+        this.wrongData.kana_text = plate_object.kana_text
+        // this.wrongData.kana_text = this.$store.state.kana_text_jp_to_eng[plate_object.kana_text]
+        // this.wrongData.vehicle_type = this.$store.state.vehicle_type_eng_to_jp[plate_object.vehicle_type]
+        this.wrongData.vehicle_type = plate_object.vehicle_type
+        console.log(this.wrongData.vehicle_type)
+
+        this.wrongData.status = this.$store.state.status_eng_to_jp[plate_object.status]
+        console.log("STATUS " ,this.wrongData.status)
+        this.wrongData.nationality = this.$store.state.nationality_eng_to_jp[plate_object.nationality]
+        // plate obj nationality
+        // console.log("Plate obj nationality" , plate_object.nationality)
+        // console.log("Nationality " , this.wrongData.nationality)
       }
       else {
-        this.wrongData.reason = plate_object.reason
-        this.wrongData.vehicle_type = plate_object.vehicle_type
-        this.wrongData.status = (this.$route.path ===`/${this.$i18n.locale}/currently_in`) ? this.$t('in', 'jp') : this.$t(plate_object.status.toLowerCase(), 'jp')
+        this.wrongData.kana_text = plate_object.kana_text
+        this.wrongData.vehicle_type =this.$store.state.vehicle_type_jp_to_eng[plate_object.vehicle_type] 
+        this.wrongData.status = plate_object.status
+        this.wrongData.nationality = plate_object.nationality
+
+        console.log("Plate obj status" , plate_object.status)
+        console.log("STATUS " ,this.wrongData.status)
       }
-      this.wrongData.nationality = plate_object.nationality
       this.last_plate_object = plate_object
       this.dialogWrongData = true
     },
     async updateWrongData(wrongData) {
       this.loadingChangeDialog = true
       wrongData.status = (this.wrongData.status) ? this.wrongData.status : ''
-      wrongData.reason = (this.wrongData.reason) ? this.wrongData.reason : ''
+      console.log("Kana text",this.wrongData.kana_text)
       const body = {
         plate: this.last_plate_object,
         change: true,
         approved_by: wrongData.approved_by,
         plate_number: wrongData.plate_number.toUpperCase(),
-        organization_name: wrongData.orgnization_name,
-        organization_name_khmer: wrongData.orgnization_name_khmer,
-        origin: wrongData.orgnization_name_khmer,
+        place_name: wrongData.place_name,
+        organization_name_khmer: wrongData.organization_name_khmer,
+        origin: wrongData.place_name,
         temperature: wrongData.temperature,
-        reason: (this.$i18n.locale === "en") ? this.$t(wrongData.reason.toLowerCase().replace(' ', "_"), "jp"): wrongData.reason,
-        num_people: wrongData.num_people,
+        // kana_text: (this.$i18n.locale === "en") ? this.$t(wrongData.kana_text.toLowerCase().replace(' ', "_"), "jp"): wrongData.kana_text,
+        kana_text : wrongData.kana_text,
+        classification_number: wrongData.classification_number,
         status : (this.$i18n.locale === "en") ? wrongData.status : this.$store.state.status_jp_to_eng[wrongData.status] ,
         phone_number: wrongData.phone_number,
         nationality : wrongData.nationality,
-        vehicle_type :  (this.$i18n.locale === "en") ? this.$t(`vehicles.${wrongData.vehicle_type.toLowerCase()}`, 'jp') : wrongData.vehicle_type,
+        vehicle_type :  (this.$i18n.locale === "en") ? this.$t(`${wrongData.vehicle_type}`, 'jp') : wrongData.vehicle_type,
       }
       console.log(body)
       try {

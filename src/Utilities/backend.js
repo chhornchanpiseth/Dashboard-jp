@@ -1,6 +1,6 @@
 import axios from "axios";
 import cookie from "./cookie";
-const baseURL = "http://192.168.0.56:3000/api";   
+const baseURL = "http://localhost:3000/api";   
 // change to new ip bos new server(192.168.0.56)
 
 
@@ -71,6 +71,7 @@ export const makeDeleteRequest = async (route, plate_data) => {
 export const makeEditRequest = async (route, data) => {
   const token = cookie.getCookie("auth-token");
   const url = baseURL + route;
+  console.log("URL", url)
   const response = await axios.patch(url, data, {
     headers: { Authorization: `Bearer ${token}` },
   });
