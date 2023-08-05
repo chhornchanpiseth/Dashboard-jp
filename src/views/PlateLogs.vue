@@ -438,7 +438,9 @@ export default {
         "location": location,
         "datetime": this.imageCaptureDetail.date
       }
+      console.log("DATA",data)
       const res = await makePostRequest(null, data, "http://192.168.7.30:5000/predict")
+      console.log("RESPONSE from captureImage", res)
       if(res.status === 'error') {
         const message = res.message === 'No vehicles found' ? this.$t('notifications.captureImage.fail.text') : this.$t('notifications.fail.text')
         const title = res.message === 'No vehicles found' ? this.$t('notifications.captureImage.success.title') : this.$t('notifications.fail.title')

@@ -181,32 +181,7 @@
                     :label="$t('plate_number')"
                   />
                 </v-col>
-                <!-- <v-col cols="12" md="6">
-                  <v-autocomplete
-                    class="purple-input"
-                    :disabled="!editMode"
-                    :label="$t('place_name_japaness')"
-                    :rules="[(v) => !!v || 'Required']"
-                    v-model="wrongData.orgnization_name_khmer"
-                    :items="$store.state.organizationPlate"
-                    item-text="plateEN"
-                    @input="mapPlate('JP', wrongData.orgnization_name_khmer)"
-                    required
-                  />
-                </v-col>
-               
-                <v-col cols="10" md="6" lg="4">
-                  <v-autocomplete
-                    class="purple-input"
-                    :disabled="!editMode"
-                    v-model="wrongData.place_name"
-                    :label="$t('origin')"
-                    :items="$store.state.organizationPlate"
-                    item-text="plateEN"
-                    @input="mapPlate('JP', wrongData.place_name)"
-                    required
-                  />
-                </v-col> -->
+            
 
                 <v-col cols="12" md="6">
                   <v-autocomplete
@@ -231,7 +206,7 @@
                     v-model="wrongData.organization_name_khmer"
                     :items="$store.state.organizationPlate"
                     item-text="plateKH"
-                    @input="mapPlate('KH', wrongData.organization_name_khmer)"
+                    @input="mapPlate('JP', wrongData.organization_name_khmer)"
                     required
                   />
                 </v-col>
@@ -435,7 +410,7 @@ export default {
       nationality: "",
       plate_number: "",
       orgnization_name: "",
-      orgnization_name_khmer: "",
+   
     },
     last_plate_object: {},
     approvedPlate: true,
@@ -506,7 +481,7 @@ export default {
       if(!this.$store.state.security.includes(this.$store.state.user.username)) this.$store.state.security.push(this.$store.state.user.username)
       this.$store.state.security.sort()
       this.wrongData.plate_number = plate_object.plate_number;
-      this.wrongData.orgnization_name_khmer = plate_object.organization_name_khmer;
+      this.wrongData.organization_name_khmer = plate_object.organization_name_khmer;
       this.wrongData.orgnization_name = plate_object.place_name;
       this.wrongData.origin = this.wrongData.place_name
       this.wrongData.temperature = plate_object.temperature
@@ -610,17 +585,23 @@ export default {
     //map Plate English to Plate Khmer and vice versa
     mapPlate(type, selectedPlate) {
       // console.log('selected')
-      if(type === "EN"){
-        const index = this.$store.state.organizationPlate.findIndex(plate => {
-        return plate.plateEN === selectedPlate
-        })
-        this.wrongData.orgnization_name_khmer = this.$store.state.organizationPlate[index].plateKH
-      }
-      else if (type === "JP") {
+      console.log(selectedPlate) 
+      console.log("MAP PLATE EXEC")
+      if(type === "JP"){
         const index = this.$store.state.organizationPlate.findIndex(plate => {
         return plate.plateKH === selectedPlate
         })
-        this.wrongData.orgnization_name = this.$store.state.organizationPlate[index].plateEN
+        console.log(index)
+        console.log(this.$store.state.organizationPlate[index].plateKH)
+        this.wrongData.place_name = this.$store.state.organizationPlate[index].plateEN
+      }
+      else if (type === "EN") {
+        const index = this.$store.state.organizationPlate.findIndex(plate => {
+        return plate.plateEN === selectedPlate
+        })
+        console.log(index)
+        this.wrongData.organization_name_khmer = this.$store.state.organizationPlate[index].plateKH
+        console.log(this.wrongData.organization_name_khmer)
       }
     },
     async changePage(page) {
