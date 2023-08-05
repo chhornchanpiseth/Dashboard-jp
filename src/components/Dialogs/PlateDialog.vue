@@ -163,7 +163,6 @@ export default {
   methods: {
     //map Plate English to Plate Khmer and vice versa
     mapPlate(type, selectedPlate) {
-      console.log("MAP PLATE TYPE",type)
       if(type === "EN"){
         const index = this.$store.state.organizationPlate.findIndex(plate => {
         return plate.plateEN === selectedPlate
