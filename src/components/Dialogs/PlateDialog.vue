@@ -75,7 +75,7 @@
                     <v-text-field
                       class="purple-input"
                       :label="$t('plate_number')"
-                      type=""
+                      type="number"
                       :rules="[(v) => !!v || 'Required']"
                       v-model="data[fields[4]]"
                       required
