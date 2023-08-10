@@ -89,7 +89,7 @@
                       class="purple-input"
                       :label="$t('place_name')"
                       :rules="[(v) => !!v || 'Required']"
-                      type="number"
+                    
                       v-model="data[fields[5]]"
                       :items="$store.state.places_name"
                       required
@@ -111,7 +111,7 @@
                       class="purple-input"
                       :label="$t('classification_num')"
                       :rules="[(v) => !!v || 'Required']"
-
+                      type="number"
                       v-model="data[fields[7]]"
                     />
                   </v-col>
