@@ -85,7 +85,13 @@
     "password": "パスワード",
     "logIn": "ログイン",
     "forgotPassword": "パスワードをお忘れですか",
-    "help": "ヘルプ"
+    "help": "ヘルプ" , 
+    "newpassword" : "新しいパスワード" ,
+    "confirmPassword" : "パスワードを認証する" ,
+    "email" : "Eメール",
+    "verifyOTP" : "Verify OTP"
+
+
   },
   "button": {
     "ok" : "決めた",
@@ -96,6 +102,16 @@
     "goToIPCamera": "カメラを見に行く"
   },
   "notifications": {
+    "forgetpassword": {
+      "success": {
+        "title": "パスワードを忘れた",
+        "text": "パスワードを忘れた"
+      },
+      "fail": {
+        "title": "パスワードを忘れた",
+        "text": "パスワードを忘れた"
+      }
+    },
     "fail": {
       "title": "問題があります",
       "text": "システムの問題"

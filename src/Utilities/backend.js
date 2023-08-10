@@ -1,6 +1,6 @@
 import axios from "axios";
 import cookie from "./cookie";
-const baseURL = "http://192.168.0.56:3000/api";   
+const baseURL = "http://localhost:3000/api";   
 // change to new ip bos new server(192.168.0.56)
 
 
@@ -16,6 +16,42 @@ export const signin = async (signinUser) => {
     }
   }).catch(error => {
     console.log("Failed to login",error)
+    return false
+  })
+  
+};
+export const forgetPassword = async (signinUser) => {
+  console.log(signinUser);
+
+  return axios.post(`${baseURL}/user/forget-password`, {
+    "username" : signinUser
+  }).then(response => {
+    console.log(response)
+    if (response.status == 200) {
+    
+      return true
+    }
+  }).catch(error => {
+    console.log("Failed to Sent OTP",error)
+    return false
+  })
+  
+};
+export const verifyOTP = async (email, otp, newPassword) => {
+  console.log(email, otp, newPassword);
+
+  return axios.post(`${baseURL}/user/verify-otp`, {
+    "email" : email ,
+    "otp" : otp,
+    "newPassword" : newPassword
+  }).then(response => {
+    console.log(response)
+    if (response.status == 200) {
+    
+      return true
+    }
+  }).catch(error => {
+    console.log("Failed to Sent OTP",error)
     return false
   })
   

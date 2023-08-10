@@ -42,6 +42,10 @@ export default new Vuex.Store({
       username: null,
       password: null,
       error: false,
+      forgetPassword: null,
+      confirmForgetPassword: null,
+      otpCode : null,
+      
     },
     location_jp_to_eng: {"オタセク": "Ou Tasek", "ウィズ": "White Shop"},
     vehicle_type_jp_to_eng: {"車": "Car", "オートバイ" :"Motorbike", "バス" : "Bus"},

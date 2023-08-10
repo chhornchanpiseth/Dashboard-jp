@@ -46,7 +46,8 @@
             <v-spacer></v-spacer>
           </v-card-actions>
           <div class="caption font-weight-light text-center mt-8 px-10">
-            <span class="blue--text">{{ $t('signIn.forgotPassword' )}}?</span>
+            <!-- <span class="blue--text">{{ $t('signIn.forgotPassword' )}}?</span> -->
+            <router-link :to="`/${$i18n.locale}/forgotpassword`" class="blue--text"> {{ $t('signIn.forgotPassword' )}}?</router-link>
             Copyright © 2020 by Optimus of Kirirom Institute of Technology
           </div>
           <div class="text-center">

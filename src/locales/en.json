@@ -87,7 +87,11 @@
     "password": "Password",
     "logIn": "Login",
     "forgotPassword": "Forgot Password",
-    "help": "help"
+    "help": "help"  , 
+    "newpassword" : "New Password",
+    "confirmPassword" : "Confirm Password",
+    "email" : "Email" ,
+    "verifyOTP" : "Verify OTP"
   },
   "button": {
     "ok" : "OK",
@@ -98,6 +102,16 @@
     "goToIPCamera": "Go to IP Camera"
   },
   "notifications": {
+    "forgetpassword": {
+      "success": {
+        "title": "Sucess",
+        "text": "OTP Sent Sucessfully"
+      },
+      "fail": {
+        "title": "Failed",
+        "text": "Fail to sent OTP"
+      }
+    },
     "fail": {
       "title": "Error",
       "text": "System Error"

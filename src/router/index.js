@@ -4,6 +4,9 @@ import CurrentlyIn from "../views/CurrentlyIn.vue";
 import PlateLogs from "../views/PlateLogs.vue";
 import Management from "../views/Management.vue";
 import Login from "../views/Login.vue";
+import ForgotPassword from "../views/ForgotPassword.vue";
+import VerifyOTP from "../views/VerifyOTP.vue";
+
 import NotFound from "../views/NotFound.vue";
 import i18n from '@/i18n.js'
 // import Monitoring from "../views/Monitoring.vue"
@@ -45,6 +48,16 @@ Vue.use(VueRouter);
           name: "manage",
           component: Management,
         },
+        {
+          path : "forgotpassword",
+          name : "forgotpassword",	
+          component : ForgotPassword
+        } , 
+        {
+          path : "verifyOTP",
+          name : "verifyOTP",	
+          component : VerifyOTP
+        } , 
         {
           path: "/*",
           name : "notfound",
