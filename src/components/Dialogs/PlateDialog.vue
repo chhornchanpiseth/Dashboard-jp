@@ -32,8 +32,10 @@
                     <v-text-field
                       class="purple-input"
                       :label="$t('fullname')"
+                      type="text"
+                      
                       v-model="data[fields[0]]"
-                      :rules="[(v) => !!v || 'Required']"
+                      :rules="[v => !!v || 'Required', v => !/\d/.test(v) || 'No numbers allowed']"
                       required
                     />
                   </v-col>
@@ -42,6 +44,7 @@
                     <v-text-field
                       class="purple-input"
                       :label="$t('phone')"
+                      type="number"
                       v-model="data[fields[1]]"
                       :rules="[(v) => !!v || 'Required']"
                       required
@@ -54,7 +57,7 @@
                       class="purple-input"
                       :label="$t('role')"
                       v-model="data[fields[2]]"
-                      :rules="[(v) => !!v || 'Required']"
+                      :rules="[v => !!v || 'Required', v => !/\d/.test(v) || 'No numbers allowed']"
                       required
                     />
                   </v-col>
@@ -72,6 +75,7 @@
                     <v-text-field
                       class="purple-input"
                       :label="$t('plate_number')"
+                      type=""
                       :rules="[(v) => !!v || 'Required']"
                       v-model="data[fields[4]]"
                       required
@@ -85,6 +89,7 @@
                       class="purple-input"
                       :label="$t('place_name')"
                       :rules="[(v) => !!v || 'Required']"
+                      type="number"
                       v-model="data[fields[5]]"
                       :items="$store.state.places_name"
                       required
