@@ -51,8 +51,8 @@ export default new Vuex.Store({
     vehicle_type_jp_to_eng: {"車": "Car", "オートバイ" :"Motorbike", "バス" : "Bus"},
     vehicle_type_eng_to_jp: { "Car" : "車", "Motorbike" : "オートバイ" , "Bus" : "バス" },
 
-    status_jp_to_eng: {"出口": "Out", "ログイン": "In"},
-    status_eng_to_jp : {"Out" : "出口", "In" : "ログイン"},
+    status_jp_to_eng: {"退場": "Out", "入場": "In"},
+    status_eng_to_jp : {"Out" : "退場", "In" : "入場"},
 
     nationality_eng_to_jp : {"Foreigner" : "外国人", "Khmer" : "カンボジア人"},
     // reason_jp_to_eng: {"お":"a", "ね":"b", "む":"c"},
